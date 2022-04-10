@@ -1,4 +1,5 @@
 const Hostel = require('../models/hostel');
+const { cloudinary } = require('../cloudinary');
 
 module.exports.index = async (req, res) => {
     const hostels = await Hostel.find({});
@@ -11,8 +12,10 @@ module.exports.renderNewForm = (req, res) => {
 
 module.exports.createHostel = async (req, res, next) => {
     const hostel = new Hostel(req.body.hostel);
+    hostel.images = req.files.map(f => ({ url: f.path, filename: f.filename }));
     hostel.author = req.user._id;
     await hostel.save();
+    console.log(hostel);
     req.flash('success', 'Successfully made a new hostel!');
     res.redirect(`/hostels/${hostel._id}`)
 }
@@ -43,7 +46,17 @@ module.exports.renderEditForm = async (req, res) => {
 
 module.exports.updateHostel = async (req, res) => {
     const { id } = req.params;
+    console.log(req.body);
     const hostel = await Hostel.findByIdAndUpdate(id, { ...req.body.hostel });
+    const imgs = req.files.map(f => ({ url: f.path, filename: f.filename }));
+    hostel.images.push(...imgs);
+    await hostel.save();
+    if(req.body.deleteImages){
+        for(let filename of req.body.deleteImages){
+            await cloudinary.uploader.destroy(filename);
+        }
+        await hostel.updateOne({ $pull: { images: { filename: { $in: req.body.deleteImages }}}})
+    }
     req.flash('success', 'Successfully updated hostel!');
     res.redirect(`/hostels/${hostel._id}`)
 }
