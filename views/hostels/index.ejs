@@ -1,29 +1,31 @@
 <% layout('layouts/boilerplate') %>
 
-<h1>All Hostels</h1>
-<div>
-    <a href="/hostels/new">Add Hostel</a>
-</div>
+<p class="display-6">All Hostels</p>
+
 <% for (let hostel of hostels){ %>
 <div class="card mb-3">
-    <div class="row">
-        <div class="col-md-4">
-            <% if(hostel.images.length){ %>
-            <img class="img-fluid" alt="" src="<%= hostel.images[0].url %>">
-            <% } else { %>
-                <img class="img-fluid" alt="" src="https://res.cloudinary.com/dhlm5djnd/image/upload/v1649349017/HostelAPP/v4m9d77fixlgbctb3rxs.jpg">
-            <% } %>
-        </div>
-        <div class="col-md-8">
-            <div class="card-body">
-                <h5 class="card-title"><%= hostel.title %></h5>
-                <p class="card-text"><%= hostel.description %></p>
-                <p class="card-text">
-                    <small class="text-muted"><%= hostel.location %></small>
-                </p>
-                <a class="btn btn-primary" href="/hostels/<%= hostel._id %>">view</a>
-            </div>
-        </div>
-    </div>
+	<div class="row">
+		<div class="col-md-4">
+			<% if(hostel.images.length){ %>
+			<img class="img-fluid" alt="" src="<%= hostel.images[0].url %>" />
+			<% } else { %>
+			<img
+				class="img-fluid"
+				alt=""
+				src="https://res.cloudinary.com/dhlm5djnd/image/upload/v1649349017/HostelAPP/v4m9d77fixlgbctb3rxs.jpg"
+			/>
+			<% } %>
+		</div>
+		<div class="col-md-8">
+			<div class="card-body">
+				<h5 class="card-title"><%= hostel.title %></h5>
+				<p class="card-text"><%= hostel.description %></p>
+				<p class="card-text">
+					<small class="text-muted"><%= hostel.location %></small>
+				</p>
+				<a class="btn btn-primary" href="/hostels/<%= hostel._id %>">view</a>
+			</div>
+		</div>
+	</div>
 </div>
 <% } %>
