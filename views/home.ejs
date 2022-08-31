@@ -11,23 +11,17 @@
 			integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
 			crossorigin="anonymous"
 		/>
-
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap"
-			rel="stylesheet"
-		/>
+		<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet" />
 
 		<link rel="stylesheet" href="/stylesheets/home.css" />
 	</head>
 	<body class="d-flex text-center text-white bg-dark">
-		<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+		<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column align-items-center">
 			<header class="mb-auto">
 				<div>
 					<nav class="nav nav-masthead justify-content-center float-md-right">
-						<a class="nav-link active" aria-current="page" href="#">Home</a>
-						<a class="nav-link" href="/hostels">Hostels</a>
 						<% if(!currentUser) { %>
 						<a class="nav-link" href="/login">Login</a>
 						<a class="nav-link" href="/register">Register</a>
@@ -39,13 +33,13 @@
 			</header>
 
 			<main class="px-3">
-				<h1>HostelAPP</h1>
-				<p class="lead">Welcome! Explore hostels and experiences around you.</p>
-				<a href="/hostels" class="btn btn-secondary font-weight-bold border-white bg-white">view</a>
+				<h1 class="explore display-1">EXPLORE</h1>
+				<p>The best hostels & experiences around you.</p>
+				<a href="/hostels" class="view-btn">View</a>
 			</main>
 
 			<footer class="mt-auto text-white-50">
-				<p>&copy; 2022</p>
+				<p>&copy; HostelApp 2022</p>
 			</footer>
 		</div>
 		<script
