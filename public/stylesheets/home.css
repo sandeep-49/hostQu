@@ -21,29 +21,32 @@ h1 {
 }
 
 .nav-link {
-	padding: 0.4rem 0.5rem;
-	border-radius: 0.5rem;
+	padding: 0.3rem 0;
 	font-weight: 500;
 	color: white;
 	margin: 0;
 }
 
+.nav-link:first-child {
+	margin-right: 0.5rem;
+}
+
 .nav-link:hover {
-	padding: 0.3rem 0.4rem;
 	color: white;
-	background: rgba(0, 0, 0, 0.5);
-	border: white solid 0.1rem;
+	padding-bottom: 0.1rem;
+	border-bottom: white solid 0.2rem;
 }
 
 .view-btn {
+	font-weight: 500;
 	color: white;
 	text-decoration: none;
 	background: rgba(0, 0, 0, 0.5);
-	padding: 0.3rem 0.6rem;
+	padding: 0.5rem 2rem;
 	border-radius: 0.5rem;
+	border: white solid 0.1rem;
 }
 
 .view-btn:hover {
 	color: white;
-	border: white solid 0.1rem;
 }
